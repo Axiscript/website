@@ -34,42 +34,7 @@
       <p class="soon">Coming soon to Android and iOS, including tablets.</p>
     </div>
 
-    <div class="mock mock-demo" aria-label="Example of field notes becoming a Chief draft">
-      <div class="head">
-        <img class="chief" src="assets/chief.jpg" width="48" height="48" alt="Chief">
-        <div><b>Notes to report</b><span>Sample project &middot; illustrative draft</span></div>
-      </div>
-      <div class="label">Your field notes</div>
-      <div class="notes-in">on site 7. safety with jake, 6 man crew. got 420 ft of 6&quot; pe in, cover 36. 5 butt fusions, I saw 3. dug up an old 2&quot; steel service, left in place. backfill tamped and crowned. rain after 2, wrapped 3:30</div>
-      <div class="label">Chief’s draft</div>
-      <div class="draft-out">
-        <div class="draft-block">
-          <div class="draft-h">Safety</div>
-          <p>On site at 7:00. Safety with Jake and a 6-man crew.</p>
-        </div>
-        <div class="draft-block">
-          <div class="draft-h">Installation</div>
-          <p>The crew installed 420' of 6&quot; PE with 36&quot; of cover.</p>
-        </div>
-        <div class="draft-block">
-          <div class="draft-h">Fusion</div>
-          <p>Five butt fusions were completed, three of which were witnessed.</p>
-        </div>
-        <div class="draft-block">
-          <div class="draft-h">Existing utilities</div>
-          <p>An old 2&quot; steel service was dug up and left in place.</p>
-        </div>
-        <div class="draft-block">
-          <div class="draft-h">Backfill</div>
-          <p>Backfill was tamped and crowned.</p>
-        </div>
-        <div class="draft-block">
-          <div class="draft-h">Closeout</div>
-          <p>Rain after 2:00. The crew wrapped at 3:30.</p>
-        </div>
-      </div>
-      <p class="mock-note">Illustrative example. Every number and name is the inspector’s. The inspector reviews and approves the draft.</p>
-    </div>
+    <img class="chief chief-hero" src="assets/chief.jpg" width="280" height="280" alt="Chief">
   </div>
 </section>
 
@@ -121,6 +86,14 @@
       <li>Chief catches it when your notes contradict each other and asks you which one is right</li>
       <li>Your dashboard shows today’s job and footage against the whole project at a glance</li>
     </ul>
+
+    <figure class="dash-shot" id="dashboard">
+      <picture>
+        <source type="image/webp" srcset="assets/dashboard.webp">
+        <img src="assets/dashboard.png" width="800" height="1280" alt="Axiscript Field day dashboard for Midstream Gathering, Segment 4, showing today’s 600 feet and 9 welds, 3,420 of 9,200 feet complete, charts, and alerts for pending NDE.">
+      </picture>
+      <figcaption>Field day. Today’s job and footage against the whole project. Illustrative data.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -132,35 +105,48 @@
         <span class="eyebrow">Meet Chief</span>
         <h2>The chief who keeps your report straight.</h2>
         <p class="intro">In the field, Chief is the boss. He takes your rough notes and turns them into an organized report. He keeps every number and name exactly as you wrote it, and he doesn’t fill in what you didn’t say. Every report stays a draft until you review, edit, and approve it.</p>
-        <div class="chief-ex" aria-label="Example of Chief at work">
+        <div class="chief-ex" aria-label="Example of Chief on a midstream gathering line">
+          <div class="ex-kicker">Midstream · gathering line</div>
           <div class="label">You wrote</div>
-          <p class="chief-ex-in">on site 7. safety with jake, 6 man crew. got 420 ft of 6&quot; pe in, cover 36. 5 butt fusions, I saw 3. dug up an old 2&quot; steel service, left in place. backfill tamped and crowned. rain after 2, wrapped 3:30</p>
+          <p class="chief-ex-in">onsite 0600 jsa w/ tie-in crew + 2 weld rigs. 12in gathering line sta 142+50 to 151+10. 9 mainline welds today, welders 07 and 12. ut shot 6, 2 cut out for porosity, rewelded. holiday test 900 ft, 3 holidays repaired. lowered in 600 ft, padding sand 6in. ditch 5ft avg, crossed foreign 8in at 147+30, 24in sep. rained 1300-1400 shut down. off 1730</p>
           <div class="label">Chief drafts</div>
           <div class="draft-out">
             <div class="draft-block">
               <div class="draft-h">Safety</div>
-              <p>On site at 7:00. Safety with Jake and a 6-man crew.</p>
+              <p>Inspector on site at 6:00 AM. JSA reviewed with the tie-in crew and two weld rigs.</p>
             </div>
             <div class="draft-block">
-              <div class="draft-h">Installation</div>
-              <p>The crew installed 420' of 6&quot; PE with 36&quot; of cover.</p>
+              <div class="draft-h">Welding</div>
+              <p>Welders 07 and 12 completed nine mainline welds on the 12&quot; gathering line between Sta. 142+50 and Sta. 151+10.</p>
             </div>
             <div class="draft-block">
-              <div class="draft-h">Fusion</div>
-              <p>Five butt fusions were completed, three of which were witnessed.</p>
+              <div class="draft-h">NDE</div>
+              <p>Six welds were shot by UT. Two were cut out for porosity and rewelded.</p>
             </div>
             <div class="draft-block">
-              <div class="draft-h">Existing utilities</div>
-              <p>An old 2&quot; steel service was dug up and left in place.</p>
+              <div class="draft-h">Coating</div>
+              <p>900' was holiday tested. Three holidays were found and repaired.</p>
             </div>
             <div class="draft-block">
-              <div class="draft-h">Backfill</div>
-              <p>Backfill was tamped and crowned.</p>
+              <div class="draft-h">Lowering-in</div>
+              <p>600' was lowered in on 6&quot; of sand padding. Average ditch depth was 5'.</p>
+            </div>
+            <div class="draft-block">
+              <div class="draft-h">Foreign crossing</div>
+              <p>The line crossed a foreign 8&quot; line at Sta. 147+30 with 24&quot; of separation.</p>
+            </div>
+            <div class="draft-block">
+              <div class="draft-h">Weather</div>
+              <p>Rain from 1:00 to 2:00 PM shut down work.</p>
             </div>
             <div class="draft-block">
               <div class="draft-h">Closeout</div>
-              <p>Rain after 2:00. The crew wrapped at 3:30.</p>
+              <p>Off site at 5:30 PM.</p>
             </div>
+          </div>
+          <div class="chief-flag">
+            <div class="draft-h">Chief flags</div>
+            <p>The two rewelds don’t have NDE results yet. Add them, or note they’re pending.</p>
           </div>
         </div>
       </div>
@@ -189,7 +175,55 @@
   </div>
 </section>
 
-<section class="band" id="pricing">
+<section class="band" id="example-distribution">
+  <div class="wrap">
+    <span class="eyebrow">Chief, on a service day</span>
+    <h2>The same standard on a distribution stop.</h2>
+    <p class="intro">Rough notes in. A client-ready draft out. Chief still flags what’s missing.</p>
+    <div class="chief-ex" aria-label="Example of Chief on a distribution service install">
+      <div class="ex-kicker">Distribution · service install</div>
+      <div class="label">You wrote</div>
+      <p class="chief-ex-in">onsite 0700. tailgate w/ mike, 4 man crew. 1&quot; pe service to 412 elm st off the 4&quot; pe main. saddle-fused service tee, I witnessed, fuser diaz. mole-shot service 85 ft. set curb valve, riser and meter. cover 36. tracer wire tested, continuity good. backfill tamped, sod put back. done 1430</p>
+      <div class="label">Chief drafts</div>
+      <div class="draft-out">
+        <div class="draft-block">
+          <div class="draft-h">Safety</div>
+          <p>Inspector on site at 7:00 AM. Tailgate with Mike and a 4-man crew.</p>
+        </div>
+        <div class="draft-block">
+          <div class="draft-h">Installation</div>
+          <p>A 1&quot; PE service was installed to 412 Elm St off the 4&quot; PE main. The service was a mole-shot service for 85'.</p>
+        </div>
+        <div class="draft-block">
+          <div class="draft-h">Tie-in</div>
+          <p>A saddle-fused service tee was installed and witnessed. Fuser was Diaz.</p>
+        </div>
+        <div class="draft-block">
+          <div class="draft-h">Meter set</div>
+          <p>Curb valve, riser, and meter were set. Cover was 36&quot;.</p>
+        </div>
+        <div class="draft-block">
+          <div class="draft-h">Testing</div>
+          <p>Tracer wire was tested and continuity was good.</p>
+        </div>
+        <div class="draft-block">
+          <div class="draft-h">Restoration</div>
+          <p>Backfill was tamped and sod was put back.</p>
+        </div>
+        <div class="draft-block">
+          <div class="draft-h">Closeout</div>
+          <p>Off site at 2:30 PM.</p>
+        </div>
+      </div>
+      <div class="chief-flag">
+        <div class="draft-h">Chief flags</div>
+        <p>The riser pressure test is not recorded. Add it, or note it’s pending.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="pricing">
   <div class="wrap">
     <span class="eyebrow">Pricing</span>
     <h2>Simple pricing.</h2>
@@ -227,10 +261,11 @@
       </div>
     </div>
     <p class="partner-note">Inspection companies get 20% off the regular rate ($11.99/month or $119.99/year).</p>
+    <p class="partner-note">Inspection companies and partners: <a href="mailto:support@axiscript.com?subject=Partner%20pricing">ask about partner pricing</a>.</p>
   </div>
 </section>
 
-<section class="band alt" id="join">
+<section class="band" id="join">
   <div class="wrap split">
     <div>
       <span class="eyebrow">Founding 250 waitlist</span>
