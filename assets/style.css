@@ -217,3 +217,38 @@ section[id]{scroll-margin-top:72px}
  .dash-shot{margin-top:22px;max-width:100%}
  .chief-hero{width:min(200px,60vw)}
 }
+
+/* notes-to-report showcase */
+.showcase .intro{max-width:40em}
+.chain{margin-top:22px}
+.chain .ex-kicker{margin:0 0 16px}
+.chain-step{margin:0 0 22px}
+.chain-label{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.chain-step .notes-in{margin:0;background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:14px 16px;font-size:1rem;line-height:1.5;color:var(--dim);font-style:italic}
+.report-shot{margin:0 auto 0 0;max-width:816px}
+.report-shot picture,.report-shot img{display:block;width:100%;height:auto}
+.report-shot img{background:#fff;border-radius:4px;box-shadow:0 18px 50px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.06);border:1px solid var(--line)}
+.report-shot figcaption{margin:10px 0 0;font-size:.85rem;color:var(--faint)}
+.chain-catch{display:grid;gap:12px}
+.chain-catch .chain-label{grid-column:1/-1;margin:0}
+.conflict-card{background:var(--panel);border:1.5px solid var(--brass);border-radius:10px;padding:14px 16px}
+.conflict-msg{margin:0 0 12px;font-weight:700;font-size:1.02rem;line-height:1.4;color:var(--text)}
+.conflict-opts{display:flex;flex-wrap:wrap;gap:8px}
+.conflict-opts span{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:1.02rem;padding:8px 14px;min-height:40px;display:inline-flex;align-items:center;border:2px solid var(--line);border-radius:8px;color:var(--text);background:var(--panel2)}
+.prog-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.prog-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:600;font-size:1.02rem}
+.prog-bar{height:10px;margin:10px 0 8px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.prog-bar i{display:block;height:100%;background:linear-gradient(90deg,#E2602B,#F2763F);border-radius:6px}
+.prog-note{margin:0;font-size:.9rem;color:var(--faint)}
+.showcase .chief-features{margin-top:8px}
+@media (min-width:900px){
+ .chain-catch{grid-template-columns:1.2fr 1fr;align-items:stretch}
+ .chain-catch .chief-flag{margin-top:0}
+ .report-shot{max-width:816px}
+}
+@media (max-width:600px){
+ .chain-step{margin:0 0 18px}
+ .chain-step .notes-in{padding:12px 14px;font-size:.95rem}
+ .report-shot{max-width:100%}
+ .conflict-msg{font-size:1rem}
+}
