@@ -141,14 +141,15 @@
         <h3>First 250 inspectors</h3>
         <div class="price">$9.99<small>/mo</small></div>
         <ul>
-          <li>$9.99 a month, locked in for as long as the subscription stays active</li>
-          <li>A third off the regular monthly price</li>
+          <li>$9.99 a month for life</li>
+          <li>Half the regular monthly price</li>
           <li>Every feature</li>
+          <li>14-day free trial</li>
         </ul>
         <div class="fine">
           <strong>Founding terms</strong>
           <ul class="terms">
-            <li>The $9.99 rate stays locked in for as long as your subscription stays active.</li>
+            <li>The $9.99 rate is yours for life, for as long as your subscription stays active.</li>
             <li>If you cancel or miss a payment, the founding rate ends.</li>
             <li>Signing back up later is at the regular price.</li>
           </ul>
@@ -156,33 +157,59 @@
       </div>
       <div class="plan">
         <h3>Monthly</h3>
-        <div class="price">$14.99<small>/mo</small></div>
-        <ul><li>Every feature</li><li>Cancel anytime</li></ul>
+        <div class="price">$19.99<small>/mo</small></div>
+        <ul><li>Every feature</li><li>14-day free trial</li><li>Cancel anytime</li></ul>
       </div>
       <div class="plan">
         <h3>Yearly</h3>
         <div class="price">$149.99<small>/yr</small></div>
-        <ul><li>Every feature</li><li>About two months free compared with monthly</li></ul>
+        <ul><li>Every feature</li><li>14-day free trial</li><li>About four and a half months free compared with monthly</li></ul>
       </div>
     </div>
-    <p class="partner-note">Inspection companies get 20% off the regular rate ($11.99/month).</p>
+    <p class="partner-note">Every plan starts with a 14-day free trial. Inspection companies get 20% off the regular rate ($15.99/month).</p>
   </div>
 </section>
 
 <section class="band" id="join">
   <div class="wrap split">
     <div>
-      <span class="eyebrow">Founding 250 waitlist</span>
-      <h2>Join the Founding 250 waitlist.</h2>
-      <p class="intro">Signup and payment aren’t live yet. Email us to get on the waitlist for the first 250 founding spots at $9.99 a month, locked in for as long as the subscription stays active. We’ll tell you when Axiscript is ready to download.</p>
-      <p class="intro">Coming soon to Android and iOS, including tablets.</p>
+      <span class="eyebrow">Founding members</span>
+      <h2>Launching soon.</h2>
+      <p class="intro">Axiscript is launching soon on Android and iOS, including tablets. The first 250 subscribers lock in founding-member pricing of $9.99/mo for life. After those 250 spots, the regular price is $19.99/mo. Every subscription includes a 14-day free trial.</p>
+      <p class="intro">Joining is free and doesn’t hold a spot. Founding spots go to the first 250 people who subscribe in the app at launch. Waitlisters get the invite first.</p>
     </div>
-    <div class="join-panel">
-      <p class="join-label">Email the waitlist</p>
-      <a class="join-email" href="mailto:support@axiscript.com">support@axiscript.com</a>
-      <a class="btn" href="mailto:support@axiscript.com?subject=Founding%20250%20waitlist">Get Founding 250 updates</a>
-      <p class="form-note">We’ll only use your email to tell you about Axiscript. See our <a href="privacy.html">privacy policy</a>.</p>
-    </div>
+    <form id="waitlist-form" novalidate>
+      <div id="waitlist-fields" class="waitlist-fields">
+        <div>
+          <label for="waitlist-email">Email</label>
+          <input id="waitlist-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="320" required placeholder="you@company.com">
+        </div>
+        <div>
+          <label for="waitlist-name">Name <span class="optional">(optional)</span></label>
+          <input id="waitlist-name" name="waitlist_name" type="text" autocomplete="name" maxlength="120" placeholder="Your name">
+        </div>
+        <fieldset>
+          <legend>What work do you do? <span class="optional">(optional)</span></legend>
+          <div class="radios">
+            <label><input type="radio" name="work_type" value="Midstream"> Midstream</label>
+            <label><input type="radio" name="work_type" value="Transmission"> Transmission</label>
+            <label><input type="radio" name="work_type" value="Distribution"> Distribution</label>
+            <label><input type="radio" name="work_type" value="Other"> Other</label>
+          </div>
+        </fieldset>
+        <div class="hp" aria-hidden="true">
+          <label for="waitlist-company">Company website</label>
+          <input id="waitlist-company" name="company_website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <p id="waitlist-status" class="waitlist-status" role="status" aria-live="polite"></p>
+        <button class="btn" id="waitlist-submit" type="submit">Join the waitlist</button>
+      </div>
+      <div id="waitlist-success" class="form-success" hidden tabindex="-1">
+        <h3>You’re on the list.</h3>
+        <p>We’ll email you an invite when Axiscript launches. The first 250 people to subscribe in the app lock in $9.99/mo.</p>
+      </div>
+      <p class="form-note">We’ll only email you about Axiscript’s launch. No spam, unsubscribe anytime.</p>
+    </form>
   </div>
 </section>
 </main>
@@ -193,5 +220,7 @@
     <div><a href="privacy.html">Privacy policy</a></div>
   </div>
 </footer>
+<script src="assets/waitlist-config.js"></script>
+<script src="assets/waitlist.js"></script>
 </body>
 </html>

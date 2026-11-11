@@ -113,17 +113,28 @@ label{font-weight:600;font-size:.98rem;display:block;margin-bottom:6px}
 input,select{width:100%;font:inherit;padding:13px 14px;border:1.5px solid var(--line);border-radius:var(--radius);background:var(--bg);color:var(--text);min-height:52px}
 input:focus,select:focus{outline:3px solid var(--accent);outline-offset:1px}
 fieldset{border:0;padding:0;margin:0}
+legend{font-weight:600;font-size:.98rem;margin-bottom:6px;padding:0}
+.optional{font-weight:500;color:var(--faint)}
 .radios{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .radios label{display:flex;align-items:center;gap:10px;font-weight:500;border:1.5px solid var(--line);border-radius:var(--radius);padding:12px;margin:0;cursor:pointer;min-height:52px}
+.radios label:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
 .radios input{width:20px;height:20px;min-height:0;accent-color:var(--accent);margin:0}
 .form-note{font-size:.88rem;color:var(--faint);margin:0}
-/* partner / join */
+form{position:relative}
+.waitlist-fields{display:grid;gap:16px}
+.waitlist-fields[hidden],.form-success[hidden]{display:none}
+section[id]{scroll-margin-top:72px}
+form .btn{width:100%}
+form button.btn:disabled{opacity:.65;cursor:progress}
+.waitlist-status{margin:0;font-size:.95rem}
+.waitlist-status:empty{display:none}
+.waitlist-status:not(:empty){background:var(--panel2);border-left:4px solid var(--accent);padding:10px 12px;border-radius:6px}
+.form-success{background:var(--panel2);border-left:4px solid var(--good);border-radius:8px;padding:14px 16px}
+.form-success h3{font-size:1.8rem;margin:0 0 .25em}
+.form-success p{margin:0;color:var(--dim)}
+.hp{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* partner */
 .partner-note{margin-top:18px;color:var(--dim);font-size:1.02rem;max-width:44em}
-.join-panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:14px;align-content:start}
-.join-label{font-weight:600;font-size:.98rem;margin:0;color:var(--dim)}
-.join-email{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.6rem;color:var(--accent);text-decoration:none;word-break:break-all}
-.join-email:hover{text-decoration:underline}
-.join-panel .btn{justify-self:start}
 /* footer */
 footer{background:var(--iron);color:#B7BAB5;padding:36px 0;font-size:.92rem}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
