@@ -83,7 +83,7 @@
     }).then(function () {
       if (!successEl.hidden) return;
       button.disabled = false;
-      button.textContent = "Join the waitlist";
+      button.textContent = "Save my spot";
     });
   });
 

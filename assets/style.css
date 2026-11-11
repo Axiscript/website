@@ -383,7 +383,7 @@ section[id]{scroll-margin-top:72px}
 /* short pre-launch page */
 .hero{padding:40px 0 28px}
 .hero .wrap{grid-template-columns:1fr;gap:0}
-.hero .lead{max-width:16em}
+.hero .lead{max-width:22em}
 section.band{padding:36px 0}
 .review-line{margin:0 0 14px;color:var(--dim);max-width:36em}
 .app-screen{background:#14181b;color:#F3F0E8;border-radius:18px;border:1px solid #2c3236;box-shadow:0 16px 40px rgba(0,0,0,.28);overflow:hidden}
@@ -403,11 +403,20 @@ section.band{padding:36px 0}
 .offer-side p{margin:0 0 .45em}
 .offer-side p:last-child{margin:0}
 .offer-side b{font-family:"Barlow Condensed",sans-serif;font-size:1.45rem;color:var(--text);font-weight:700}
-.feat-carousel .carousel-slide{display:flex;align-items:center;justify-content:center;min-height:150px;padding:8px 56px 4px}
-.feat-slide{text-align:center;max-width:26em}
-.feat-slide h3{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 .25em}
-.feat-slide p{margin:0;color:var(--dim);font-size:1.08rem}
-.coming{display:inline-block;margin:0 0 8px;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:#181B1D;background:var(--brass);border-radius:6px;padding:3px 8px 2px}
+.feat-strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.feat-tile{flex:0 0 280px;scroll-snap-align:start;background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:14px;padding:18px 16px 20px}
+.feat-tile h3{margin:0 0 .35em;font-size:1.45rem}
+.feat-tile p{margin:0;color:var(--dim);font-size:1.02rem}
+.testing{display:inline-block;margin-left:6px;vertical-align:middle;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.02em;color:#181B1D;background:var(--brass);border-radius:5px;padding:1px 7px 0}
+.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;align-items:stretch}
+.price-cards .plan h3{font-size:1.55rem}
+.plan-line{margin:12px 0 0;color:var(--dim)}
+.plan-line.rate{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.7rem;line-height:1.15;color:var(--text)}
+.trial-line{margin:16px 0 0;color:var(--dim)}
+@media (max-width:600px){
+ .feat-tile{flex-basis:82%}
+ .price-cards{grid-template-columns:1fr}
+}
 @media (max-width:800px){
  .app-panes{grid-template-columns:1fr}
  .app-pane{max-height:168px}
