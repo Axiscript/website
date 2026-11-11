@@ -443,3 +443,6 @@ section.band{padding:36px 0}
   .paper{padding:18px 14px 14px;font-size:16px}
   .feat-card{padding:18px 16px}
 }
+.doc table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+.doc th,.doc td{border:1px solid rgba(0,0,0,.15);padding:8px 10px;text-align:left;vertical-align:top}
+.doc th{background:rgba(0,0,0,.05)}
