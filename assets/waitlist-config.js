@@ -12,5 +12,5 @@
  * ========================================================================== */
 window.AXISCRIPT_WAITLIST = {
   supabaseUrl: "https://ghvafuxmusfaolzrwefm.supabase.co",
-  publishableKey: "PASTE_PUBLISHABLE_ANON_KEY_HERE"
+  publishableKey: "sb_publishable_Ik5uUVg3GU-84occOxTBVg_6QshK52x"
 };
