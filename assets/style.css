@@ -34,6 +34,12 @@ padding:14px 24px;border-radius:var(--radius);border:0;cursor:pointer;min-height
 .hero p.body{font-size:1.15rem;color:var(--dim);max-width:34em}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 .soon{margin-top:16px;font-size:.95rem;color:var(--faint)}
+.device-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0;color:var(--dim);font-size:.98rem;max-width:40em}
+.soon:has(+ .device-note){margin-bottom:10px}
+.intro:has(+ .device-note){margin-bottom:12px}
+.device-note + .intro{margin-top:16px}
+.tablet-badge{display:inline-flex;align-items:center;gap:6px;flex:none;background:var(--brass);color:#181B1D;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;line-height:1;padding:5px 10px 4px;border-radius:6px}
+.tablet-badge svg{width:18px;height:18px;display:block}
 /* report mock */
 .mock{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.08);position:relative}
 .mock .head{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:12px}
