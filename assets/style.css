@@ -393,10 +393,16 @@ section.band{padding:36px 0}
 .app-bar b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:1.25rem;line-height:1}
 .app-bar span{font-size:.82rem;color:#B7BAB5}
 .app-panes{display:grid;grid-template-columns:1fr 1fr}
-.app-pane{padding:14px 16px 18px}
-.app-pane+.app-pane{border-left:1px solid #2c3236}
-.app-kicker{margin:0 0 8px;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#F2763F}
-.app-pane pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#E7E4DC}
+.app-col+.app-col{border-left:1px solid #2c3236}
+.app-kicker{margin:0;padding:12px 16px 0;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#F2763F}
+.app-pane-wrap{position:relative}
+.app-pane{height:420px;overflow-y:scroll;padding:10px 14px 18px;scrollbar-width:thin;scrollbar-color:#8c918d #1e2326}
+.app-pane::-webkit-scrollbar{width:10px}
+.app-pane::-webkit-scrollbar-track{background:#1e2326}
+.app-pane::-webkit-scrollbar-thumb{background:#8c918d;border-radius:6px;border:2px solid #1e2326}
+.app-pane pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:13.5px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#E7E4DC}
+.scroll-hint{display:none;position:absolute;left:0;right:12px;bottom:0;height:42px;pointer-events:none;align-items:flex-end;justify-content:center;padding-bottom:6px;background:linear-gradient(to bottom,rgba(20,24,27,0),#14181b 72%);font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#B7BAB5}
+.app-pane-wrap.can-scroll .scroll-hint{display:flex}
 .offer{display:grid;grid-template-columns:1.2fr 1fr;gap:18px 28px;align-items:center;background:var(--panel);border:2px solid var(--accent);border-radius:14px;padding:22px 24px;margin-top:8px}
 .offer .eyebrow{margin-bottom:.35em}
 .offer .price{font-size:clamp(2.4rem,6vw,3.2rem)}
@@ -420,7 +426,8 @@ section.band{padding:36px 0}
 }
 @media (max-width:800px){
  .app-panes{grid-template-columns:1fr}
- .app-pane+.app-pane{border-left:0;border-top:1px solid #2c3236}
+ .app-col+.app-col{border-left:0;border-top:1px solid #2c3236}
+ .app-pane{height:320px}
  .offer{grid-template-columns:1fr;gap:8px}
 }
 @media (max-width:600px){
