@@ -10,6 +10,7 @@
   var fields = document.getElementById("waitlist-fields");
   var successEl = document.getElementById("waitlist-success");
   var button = document.getElementById("waitlist-submit");
+  var allowedDevices = { Phone: true, Tablet: true, Laptop: true };
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -19,6 +20,7 @@
     var name = (nameInput.value || "").trim();
     var workInput = form.querySelector('input[name="work_type"]:checked');
     var work = workInput ? workInput.value : "";
+    var devices = selectedDevices();
 
     statusEl.textContent = "";
     emailInput.removeAttribute("aria-invalid");
@@ -50,31 +52,42 @@
     var payload = { email: email, source: "website" };
     if (name) payload.name = name;
     if (work) payload.work_type = work;
+    if (devices.length) payload.report_devices = devices;
 
     button.disabled = true;
     button.textContent = "Joining…";
 
-    // return=minimal so PostgREST does not try to read the new row back.
-    // anon has insert only, and a returning select would fail.
-    fetch(url + "/rest/v1/waitlist", {
-      method: "POST",
-      headers: {
-        apikey: key,
-        Authorization: "Bearer " + key,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Prefer: "return=minimal"
-      },
-      body: JSON.stringify(payload)
-    }).then(function (res) {
+    postWaitlist(url, key, payload).then(function (res) {
       if (res.ok) {
         showSuccess();
         return;
       }
-      return res.json().catch(function () { return {}; }).then(function (body) {
-        if (res.status === 409 || (body && body.code === "23505")) {
+      return readError(res).then(function (body) {
+        if (isDuplicate(res, body)) {
           statusEl.textContent = "You’re already on the list";
           return;
+        }
+        // Column or grant may not be in place yet. Retry without the new field.
+        if (payload.report_devices && isMissingDeviceColumn(res, body)) {
+          var retryPayload = {
+            email: payload.email,
+            source: payload.source
+          };
+          if (payload.name) retryPayload.name = payload.name;
+          if (payload.work_type) retryPayload.work_type = payload.work_type;
+          return postWaitlist(url, key, retryPayload).then(function (retryRes) {
+            if (retryRes.ok) {
+              showSuccess();
+              return;
+            }
+            return readError(retryRes).then(function (retryBody) {
+              if (isDuplicate(retryRes, retryBody)) {
+                statusEl.textContent = "You’re already on the list";
+                return;
+              }
+              statusEl.textContent = "Something went wrong. Try again, or email support@axiscript.com.";
+            });
+          });
         }
         statusEl.textContent = "Something went wrong. Try again, or email support@axiscript.com.";
       });
@@ -91,6 +104,53 @@
     fields.hidden = true;
     successEl.hidden = false;
     successEl.focus();
+  }
+
+  function selectedDevices() {
+    var boxes = form.querySelectorAll('input[name="report_devices"]:checked');
+    var devices = [];
+    for (var i = 0; i < boxes.length; i++) {
+      var value = boxes[i].value;
+      if (allowedDevices[value] && devices.indexOf(value) === -1) {
+        devices.push(value);
+      }
+    }
+    return devices;
+  }
+
+  // return=minimal so PostgREST does not try to read the new row back.
+  // anon has insert only, and a returning select would fail.
+  function postWaitlist(url, key, payload) {
+    return fetch(url + "/rest/v1/waitlist", {
+      method: "POST",
+      headers: {
+        apikey: key,
+        Authorization: "Bearer " + key,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Prefer: "return=minimal"
+      },
+      body: JSON.stringify(payload)
+    });
+  }
+
+  function readError(res) {
+    return res.json().catch(function () { return {}; });
+  }
+
+  function isDuplicate(res, body) {
+    return res.status === 409 || (body && body.code === "23505");
+  }
+
+  function isMissingDeviceColumn(res, body) {
+    var code = body && body.code ? String(body.code) : "";
+    if (code === "PGRST204" || code === "42703") return true;
+    var text = [
+      body && body.message,
+      body && body.hint,
+      body && body.details
+    ].filter(Boolean).join(" ");
+    return res.status >= 400 && res.status < 500 && /report_devices/i.test(text);
   }
 
   function isValidEmail(email) {
