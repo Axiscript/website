@@ -112,7 +112,6 @@ ul.ticks li::before{content:"";position:absolute;left:4px;top:17px;width:12px;he
 /* pricing */
 .prices{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;margin-top:28px;align-items:stretch}
 .plan{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column}
-.plan.founding{border:2px solid var(--accent);position:relative}
 .plan .badge{position:absolute;top:-14px;left:22px;background:var(--accent);color:#181B1D;font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:6px;font-size:.95rem}
 .price{font-size:3rem;font-weight:700;line-height:1}
 .price small{font-size:1.2rem;font-weight:600;color:var(--dim)}
@@ -167,7 +166,6 @@ section[id]{scroll-margin-top:72px}
  .grid{grid-template-columns:1fr 1fr}
  .chief-row{flex-direction:column;align-items:flex-start;gap:20px}
  .prices{grid-template-columns:1fr}
- .plan.founding{margin-top:8px}
 }
 @media (max-width:600px){
  body{font-size:16px}
@@ -199,7 +197,6 @@ section[id]{scroll-margin-top:72px}
 .demo-ticks{max-width:44em;margin-top:8px}
 .demo-ticks li{padding:10px 0 10px 30px}
 .chief-plus .chief-features{margin-top:28px}
-.plan.founding .badge{display:inline-flex;align-items:center;background:var(--brass);color:#181B1D}
 .plan .badge .star{color:#181B1D;margin-right:5px;font-size:1.05em;line-height:1}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media (max-width:900px){
@@ -417,6 +414,7 @@ section.band{padding:36px 0}
 .feat-tile p{margin:0;color:var(--dim);font-size:1.02rem}
 .testing{display:inline-block;margin-left:6px;vertical-align:middle;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.02em;color:#181B1D;background:var(--brass);border-radius:5px;padding:1px 7px 0}
 .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;align-items:stretch}
+.price-cards.single{grid-template-columns:1fr;max-width:420px}
 .price-cards .plan h3{font-size:1.55rem}
 .plan-line{margin:12px 0 0;color:var(--dim)}
 .plan-line.rate{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.7rem;line-height:1.15;color:var(--text)}

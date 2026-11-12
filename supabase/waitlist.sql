@@ -1,4 +1,4 @@
--- Founding-member waitlist for axiscript.com
+-- Waitlist signups from axiscript.com
 -- Project: ghvafuxmusfaolzrwefm (https://ghvafuxmusfaolzrwefm.supabase.co)
 --
 -- Run this once in the Supabase SQL editor. This pull request does not apply it.
@@ -34,7 +34,7 @@ create table public.waitlist (
 create unique index waitlist_email_unique on public.waitlist (lower(email));
 
 comment on table public.waitlist is
-  'Founding-member waitlist signups from axiscript.com.';
+  'Waitlist signups from axiscript.com.';
 
 alter table public.waitlist enable row level security;
 
