@@ -40,6 +40,9 @@ padding:14px 24px;border-radius:var(--radius);border:0;cursor:pointer;min-height
 .device-note + .intro{margin-top:16px}
 .tablet-badge{display:inline-flex;align-items:center;gap:6px;flex:none;background:var(--brass);color:#181B1D;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;line-height:1;padding:5px 10px 4px;border-radius:6px}
 .tablet-badge svg{width:18px;height:18px;display:block}
+.app-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;margin:12px 0 0;font-weight:600}
+.app-links a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.app-links a:hover{filter:brightness(1.07)}
 /* report mock */
 .mock{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.08);position:relative}
 .mock .head{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:12px}
