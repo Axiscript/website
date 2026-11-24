@@ -388,7 +388,79 @@ section[id]{scroll-margin-top:72px}
 section.band{padding:36px 0}
 .review-line{margin:0 0 14px;color:var(--dim);max-width:36em}
 .app-screen{background:#14181b;color:#F3F0E8;border-radius:18px;border:1px solid #2c3236;box-shadow:0 16px 40px rgba(0,0,0,.28)}
-#report .carousel-frame,#report .carousel-track{overflow:visible;max-height:none}
+#report .carousel{position:relative}
+#report .carousel-frame{
+  overflow:hidden;
+  padding:0 0 16px;
+}
+#report .carousel-track{overflow-x:auto;overflow-y:hidden;max-height:none}
+#report .carousel-arrow{background:#14181b;color:#F3F0E8;border-color:#2c3236}
+#report .carousel-prev{left:8px}
+#report .carousel-next{right:8px}
+@media (min-width:700px){
+  #report .carousel-frame{padding:0 52px 16px}
+  #report .carousel-prev{left:0}
+  #report .carousel-next{right:0}
+}
+@media (max-width:699px){
+  #report .carousel-frame{padding-bottom:28px}
+  #report .carousel-prev{left:0}
+  #report .carousel-next{right:0}
+}
+
+/* Ask Chief chat mock (matches the app panel: #24282B / #F3F0E8 / #F2783F) */
+.ask-screen{display:flex;flex-direction:column;min-height:0}
+.ask-thread{
+  height:auto;min-height:280px;overflow-y:auto;padding:14px 14px 10px;
+  display:flex;flex-direction:column;gap:10px;
+  scrollbar-width:thin;scrollbar-color:#8c918d #1e2326
+}
+.ask-thread::-webkit-scrollbar{width:10px}
+.ask-thread::-webkit-scrollbar-track{background:#1e2326}
+.ask-thread::-webkit-scrollbar-thumb{background:#8c918d;border-radius:6px;border:2px solid #1e2326}
+.ask-row{display:flex;align-items:flex-start;gap:8px;max-width:92%}
+.ask-row.user{align-self:flex-end;max-width:86%;justify-content:flex-end}
+.ask-row.ask-from{align-self:flex-start}
+.ask-face,.ask-status img{
+  width:28px;height:28px;max-width:28px;max-height:28px;
+  border-radius:50%;flex:0 0 28px;object-fit:cover;align-self:flex-start;
+  box-shadow:0 0 0 2px var(--brass)
+}
+.ask-bubble{
+  background:#2E3337;border-radius:14px;padding:10px 14px;
+  color:#F3F0E8;font-size:15px;line-height:1.45
+}
+.ask-row.user .ask-bubble{background:#3A4044}
+.ask-bubble p{margin:0 0 .45em}
+.ask-bubble p:last-child{margin:0}
+.ask-lead{font-size:18px;font-weight:800;line-height:1.25;margin:0 0 .4em}
+.ask-aside{margin:0 0 .45em}
+.ask-cite{
+  display:inline-block;margin-top:.2em;padding:4px 10px;
+  border:1px solid #F2783F;border-radius:20px;
+  font-size:11px;font-weight:600;letter-spacing:.01em
+}
+.ask-status{display:flex;align-items:center;gap:8px;align-self:flex-start;max-width:92%}
+.ask-status-line{
+  background:#2E3337;border-radius:14px;padding:10px 14px;
+  color:#B7BAB5;font-size:15px;line-height:1.45;font-style:italic
+}
+.ask-composer{
+  display:flex;align-items:center;gap:8px;padding:12px 14px;
+  border-top:1px solid #3B4145
+}
+.ask-input{
+  flex:1;color:#B7BAB5;font-size:16px;padding:8px 0;min-height:40px;
+  display:flex;align-items:center
+}
+.ask-send{
+  background:#F2783F;color:#24282B;font-weight:800;font-size:16px;
+  border-radius:12px;padding:12px 18px;min-height:52px;
+  display:flex;align-items:center;justify-content:center
+}
+@media (max-width:800px){
+  .ask-thread{min-height:240px}
+}
 .app-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid #2c3236}
 .app-bar img{width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 2px var(--brass)}
 .app-bar b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:1.25rem;line-height:1}

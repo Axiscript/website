@@ -56,11 +56,16 @@
   <div class="wrap">
     <span class="eyebrow">Chief</span>
     <h2>Notes to a daily.</h2>
-    <p class="review-line">Hand Chief the day’s notes. He drafts the daily in an inspector’s voice. You review every word before it goes out.</p>
+    <p class="review-line">Hand Chief the day’s notes, or ask him a field question. He drafts the daily in an inspector’s voice. You review every word before it goes out.</p>
     <div class="carousel" data-carousel>
+      <div class="carousel-tabs" role="tablist" aria-label="Chief examples">
+        <button type="button" role="tab" id="tab-notes" aria-controls="report-slide-1" aria-selected="true">Notes to a daily</button>
+        <button type="button" role="tab" id="tab-ask" aria-controls="report-slide-2" aria-selected="false">Ask Chief</button>
+      </div>
       <div class="carousel-frame">
-        <div class="carousel-track" tabindex="0" aria-label="Rough notes and Chief’s report">
-          <article class="carousel-slide" id="report-slide-1" role="tabpanel" aria-label="Rough notes beside Chief’s report">
+        <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous example"><span aria-hidden="true">‹</span></button>
+        <div class="carousel-track" tabindex="0" aria-label="Chief examples, swipe or use arrow keys">
+          <article class="carousel-slide" id="report-slide-1" role="tabpanel" aria-labelledby="tab-notes">
             <div class="app-screen">
               <div class="app-bar">
                 <img src="assets/chief.jpg" width="36" height="36" alt="">
@@ -124,10 +129,59 @@ Clearing and grading continued through the afternoon. No stringing, ditching, we
               </div>
             </div>
           </article>
+          <article class="carousel-slide" id="report-slide-2" role="tabpanel" aria-labelledby="tab-ask">
+            <div class="app-screen ask-screen">
+              <div class="app-bar">
+                <img src="assets/chief.jpg" width="36" height="36" alt="">
+                <div><b>Ask Chief</b></div>
+              </div>
+              <div class="ask-thread" tabindex="0">
+                <div class="ask-row user">
+                  <div class="ask-bubble">Do I write that we dug a bellhole over the main, or opened one?</div>
+                </div>
+                <div class="ask-status">
+                  <img src="assets/chief.jpg" width="28" height="28" alt="">
+                  <div class="ask-status-line">Checking the library first. Somebody has to.</div>
+                </div>
+                <div class="ask-row ask-from">
+                  <img class="ask-face" src="assets/chief.jpg" width="28" height="28" alt="">
+                  <div class="ask-bubble">
+                    <p class="ask-lead">Opened.</p>
+                    <p>You open a bellhole or a box-out over the main. You don’t dig one.</p>
+                  </div>
+                </div>
+                <div class="ask-row user">
+                  <div class="ask-bubble">Got it. Different problem. We’re in a 6-foot trench, no box, no bench, no slope. We good to keep working?</div>
+                </div>
+                <div class="ask-status">
+                  <img src="assets/chief.jpg" width="28" height="28" alt="">
+                  <div class="ask-status-line">Checking the library</div>
+                </div>
+                <div class="ask-row ask-from">
+                  <img class="ask-face" src="assets/chief.jpg" width="28" height="28" alt="">
+                  <div class="ask-bubble">
+                    <p class="ask-lead">No. Get out of that hole.</p>
+                    <p class="ask-aside">A competent person waving it off doesn’t count at 6 feet.</p>
+                    <p>OSHA requires a protective system in excavations 5 feet or deeper, unless the excavation is in stable rock. Slope it, bench it, or put a box in before anyone goes back in.</p>
+                    <p class="ask-cite">29 CFR 1926.652(a)(1)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ask-composer" aria-hidden="true">
+                <div class="ask-input">Ask Chief</div>
+                <div class="ask-send">Send</div>
+              </div>
+            </div>
+          </article>
         </div>
+        <button type="button" class="carousel-arrow carousel-next" aria-label="Next example"><span aria-hidden="true">›</span></button>
+      </div>
+      <div class="carousel-dots">
+        <button type="button" aria-label="Show notes to a daily" aria-current="true"></button>
+        <button type="button" aria-label="Show Ask Chief"></button>
       </div>
     </div>
-    <p class="mock-note">Sample notes and draft only. Names, stations, and quantities are fictional.</p>
+    <p class="mock-note">Sample notes, draft, and conversation only. Names, stations, and quantities are fictional.</p>
   </div>
 </section>
 

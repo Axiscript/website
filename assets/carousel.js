@@ -25,10 +25,14 @@
       });
     }
 
+    function slidePos(s) {
+      return s.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+    }
+
     function go(n, opts) {
       opts = opts || {};
       i = ((n % slides.length) + slides.length) % slides.length;
-      var left = slides[i].offsetLeft;
+      var left = slidePos(slides[i]);
       var instant = reduce || opts.instant;
       scrolling = true;
       track.style.scrollSnapType = "none";
@@ -59,7 +63,7 @@
         var n = slides.indexOf(e.target);
         if (n < 0) return;
         // Only trust a slide that's actually under the current scroll position
-        if (Math.abs(track.scrollLeft - slides[n].offsetLeft) > track.clientWidth * 0.35) return;
+        if (Math.abs(track.scrollLeft - slidePos(slides[n])) > track.clientWidth * 0.35) return;
         if (e.intersectionRatio > bestR) { bestR = e.intersectionRatio; best = n; }
       });
       if (best >= 0 && best !== i) { i = best; sync(); }
