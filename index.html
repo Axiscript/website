@@ -71,6 +71,7 @@
                 <img src="assets/chief.jpg" width="36" height="36" alt="">
                 <div><b>Notes to report</b></div>
               </div>
+              <div class="app-body">
               <div class="app-panes">
                 <div class="app-col">
                   <div class="app-kicker">Your notes</div>
@@ -127,6 +128,8 @@ Clearing and grading continued through the afternoon. No stringing, ditching, we
                   </div>
                 </div>
               </div>
+                <div class="scroll-hint app-body-hint" aria-hidden="true">Scroll</div>
+              </div>
             </div>
           </article>
           <article class="carousel-slide" id="report-slide-2" role="tabpanel" aria-labelledby="tab-ask">
@@ -135,6 +138,7 @@ Clearing and grading continued through the afternoon. No stringing, ditching, we
                 <img src="assets/chief.jpg" width="36" height="36" alt="">
                 <div><b>Ask Chief</b></div>
               </div>
+              <div class="ask-thread-wrap">
               <div class="ask-thread" tabindex="0">
                 <div class="ask-row user">
                   <div class="ask-bubble">How do I calculate a 1.5:1 Class C excavation for this bellhole?</div>
@@ -184,6 +188,8 @@ Yes, you figure the length the same way as the width. Each side that's sloped ge
 Source: 29 CFR 1926 Subpart P, Appendix B. The project spec governs.</div>
                   </div>
                 </div>
+              </div>
+                <div class="scroll-hint" aria-hidden="true">Scroll</div>
               </div>
               <div class="ask-composer" aria-hidden="true">
                 <div class="ask-input">Ask Chief</div>
@@ -325,12 +331,18 @@ Source: 29 CFR 1926 Subpart P, Appendix B. The project spec governs.</div>
 </footer>
 <script src="assets/carousel.js"></script>
 <script>
-document.querySelectorAll(".app-pane").forEach(function (pane) {
-  var wrap = pane.parentElement;
+document.querySelectorAll(".app-pane, .ask-thread, .app-body").forEach(function (pane) {
+  var wrap = pane.classList.contains("app-body") ? pane : pane.parentElement;
+  if (!wrap) return;
+  function more() {
+    return pane.scrollHeight > pane.clientHeight + 2 &&
+      pane.scrollTop + pane.clientHeight < pane.scrollHeight - 6;
+  }
   function check() {
-    wrap.classList.toggle("can-scroll", pane.scrollHeight > pane.clientHeight + 2);
+    wrap.classList.toggle("can-scroll", more());
   }
   check();
+  pane.addEventListener("scroll", check, { passive: true });
   window.addEventListener("resize", check);
 });
 </script>

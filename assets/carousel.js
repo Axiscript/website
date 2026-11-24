@@ -81,10 +81,36 @@
     if (prev) prev.addEventListener("click", function () { go(i - 1); });
     if (next) next.addEventListener("click", function () { go(i + 1); });
 
+    function isInnerScroller(el) {
+      return !!(el && el.closest && el.closest(".app-pane, .ask-thread, .app-body"));
+    }
+
+    // Lock the track to vertical or horizontal on a swipe so inner
+    // panel scroll and slide changes do not fight.
+    var axis = null, startX = 0, startY = 0, startLeft = 0;
+    track.addEventListener("touchstart", function (e) {
+      var tch = e.changedTouches[0];
+      axis = null;
+      startX = tch.clientX;
+      startY = tch.clientY;
+      startLeft = track.scrollLeft;
+    }, { passive: true });
+    track.addEventListener("touchmove", function (e) {
+      var tch = e.changedTouches[0];
+      var dx = tch.clientX - startX, dy = tch.clientY - startY;
+      if (axis == null && (Math.abs(dx) > 10 || Math.abs(dy) > 10)) {
+        axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      }
+      if (axis === "y") track.scrollLeft = startLeft;
+    }, { passive: true });
+    track.addEventListener("touchend", function () { axis = null; }, { passive: true });
+    track.addEventListener("touchcancel", function () { axis = null; }, { passive: true });
+
     root.addEventListener("keydown", function (e) {
       var keys = { ArrowLeft: -1, ArrowRight: 1, Home: "home", End: "end" };
       if (!(e.key in keys)) return;
       if (!root.contains(document.activeElement)) return;
+      if (isInnerScroller(document.activeElement)) return;
       e.preventDefault();
       if (e.key === "Home") go(0, { focus: true });
       else if (e.key === "End") go(slides.length - 1, { focus: true });
