@@ -393,7 +393,7 @@ section.band{padding:36px 0}
   overflow:hidden;
   padding:0 0 16px;
 }
-#report .carousel-track{overflow-x:auto;overflow-y:hidden;max-height:none}
+#report .carousel-track{overflow-x:auto;overflow-y:hidden;max-height:none;align-items:flex-start}
 #report .carousel-arrow{background:#14181b;color:#F3F0E8;border-color:#2c3236}
 #report .carousel-prev{left:8px}
 #report .carousel-next{right:8px}
@@ -559,3 +559,7 @@ section.band{padding:36px 0}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr;gap:28px}
 }
+
+.ask-body{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;line-height:1.45}
+.ask-lead + .ask-body{margin-top:.4em}
+.ask-status-line{white-space:pre-wrap;overflow-wrap:anywhere}

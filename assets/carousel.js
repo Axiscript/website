@@ -23,6 +23,12 @@
       slides.forEach(function (s, k) {
         s.setAttribute("aria-hidden", k === i ? "false" : "true");
       });
+      // Keep the frame as tall as the visible slide so a short slide
+      // does not leave a gap under a taller neighbor.
+      if (slides[i]) {
+        var h = slides[i].offsetHeight;
+        if (h) track.style.height = h + "px";
+      }
     }
 
     function slidePos(s) {
