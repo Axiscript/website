@@ -448,3 +448,13 @@ section.band{padding:36px 0}
 .doc table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
 .doc th,.doc td{border:1px solid rgba(0,0,0,.15);padding:8px 10px;text-align:left;vertical-align:top}
 .doc th{background:rgba(0,0,0,.05)}
+
+/* Phone width: the waitlist form never pushes the page sideways (390 wide scrolled 15px). */
+.split>*{min-width:0}
+fieldset{min-width:0}
+@media (max-width:420px){
+ .radios.device-choices{grid-template-columns:1fr 1fr}
+}
+@media (max-width:360px){
+ .radios label{padding:12px 10px;gap:8px;min-width:0;overflow-wrap:anywhere}
+}
