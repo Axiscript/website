@@ -23,12 +23,22 @@
       slides.forEach(function (s, k) {
         s.setAttribute("aria-hidden", k === i ? "false" : "true");
       });
+      // Keep the frame as tall as the visible slide so a short slide
+      // does not leave a gap under a taller neighbor.
+      if (slides[i]) {
+        var h = slides[i].offsetHeight;
+        if (h) track.style.height = h + "px";
+      }
+    }
+
+    function slidePos(s) {
+      return s.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
     }
 
     function go(n, opts) {
       opts = opts || {};
       i = ((n % slides.length) + slides.length) % slides.length;
-      var left = slides[i].offsetLeft;
+      var left = slidePos(slides[i]);
       var instant = reduce || opts.instant;
       scrolling = true;
       track.style.scrollSnapType = "none";
@@ -59,7 +69,7 @@
         var n = slides.indexOf(e.target);
         if (n < 0) return;
         // Only trust a slide that's actually under the current scroll position
-        if (Math.abs(track.scrollLeft - slides[n].offsetLeft) > track.clientWidth * 0.35) return;
+        if (Math.abs(track.scrollLeft - slidePos(slides[n])) > track.clientWidth * 0.35) return;
         if (e.intersectionRatio > bestR) { bestR = e.intersectionRatio; best = n; }
       });
       if (best >= 0 && best !== i) { i = best; sync(); }
@@ -71,10 +81,36 @@
     if (prev) prev.addEventListener("click", function () { go(i - 1); });
     if (next) next.addEventListener("click", function () { go(i + 1); });
 
+    function isInnerScroller(el) {
+      return !!(el && el.closest && el.closest(".app-pane, .ask-thread, .app-body"));
+    }
+
+    // Lock the track to vertical or horizontal on a swipe so inner
+    // panel scroll and slide changes do not fight.
+    var axis = null, startX = 0, startY = 0, startLeft = 0;
+    track.addEventListener("touchstart", function (e) {
+      var tch = e.changedTouches[0];
+      axis = null;
+      startX = tch.clientX;
+      startY = tch.clientY;
+      startLeft = track.scrollLeft;
+    }, { passive: true });
+    track.addEventListener("touchmove", function (e) {
+      var tch = e.changedTouches[0];
+      var dx = tch.clientX - startX, dy = tch.clientY - startY;
+      if (axis == null && (Math.abs(dx) > 10 || Math.abs(dy) > 10)) {
+        axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      }
+      if (axis === "y") track.scrollLeft = startLeft;
+    }, { passive: true });
+    track.addEventListener("touchend", function () { axis = null; }, { passive: true });
+    track.addEventListener("touchcancel", function () { axis = null; }, { passive: true });
+
     root.addEventListener("keydown", function (e) {
       var keys = { ArrowLeft: -1, ArrowRight: 1, Home: "home", End: "end" };
       if (!(e.key in keys)) return;
       if (!root.contains(document.activeElement)) return;
+      if (isInnerScroller(document.activeElement)) return;
       e.preventDefault();
       if (e.key === "Home") go(0, { focus: true });
       else if (e.key === "End") go(slides.length - 1, { focus: true });
